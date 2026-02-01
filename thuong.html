@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Nguyễn Thị Hoài Thương</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+    
+    <button class="music-btn" onclick="toggleMusic()">🎵 Nhạc</button>    
+<header>
+    <h1>🌟 Thành viên nhóm – 12D 🌟</h1>
+</header>
+
+<section class="page active">
+
+    <h2>👤 Nguyễn Thị Hoài Thương</h2>
+
+    <div class="profile-layout">
+        <img src="member4.jpg" alt="Nguyễn Thị Hoài Thương">
+        <div class="profile-info">
+            <p>
+                Lớp: 12D<br>
+                Vai trò trong nhóm: Thành viên<br>
+                Sở thích: Đánh bi-a, ngủ, xem phim, nghe nhạc<br>
+                Ngày sinh:27/8/2008<br>
+                Nơi sinh: Thôn Nam Sơn, Xã Vĩnh Thuỷ, Tỉnh Quảng Trị
+            </p>
+        </div>
+    </div>
+
+    <a href="index.html" class="back-btn">⬅ Quay về trang nhóm</a>
+
+</section>
+<script>
+    function toggleMusic() {
+        const music = document.getElementById("bgMusic");
+    
+        if (!music) return;
+    
+        if (music.paused) {
+            music.play();
+        } else {
+            music.pause();
+        }
+    }
+    </script>    
+</body>
+</html>

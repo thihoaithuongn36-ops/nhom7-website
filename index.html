@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>CHÀO MỪNG MỌI NGƯỜI ĐẾN VỚI WEBSITE CỦA NHÓM 7</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Nhạc nền -->
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+<button class="music-btn" onclick="toggleMusic()">🎵 Nhạc</button>
+
+<header>
+    <h1>🌟 WEBSITE GIỚI THIỆU 🌟</h1>
+    <p>Lớp 12D</p>
+</header>
+
+<nav>
+    <a href="javascript:void(0)" onclick="fadeToSection('home')">Trang chủ</a>
+    <a href="javascript:void(0)" onclick="fadeToSection('school')">Trường</a>
+    <a href="javascript:void(0)" onclick="fadeToSection('class')">Lớp</a>
+    <a href="javascript:void(0)" onclick="fadeToSection('group')">Nhóm</a>
+</nav>
+
+<!-- TRANG CHỦ -->
+<section id="home" class="page active">
+    <h2>👋 Xin chào!</h2>
+    <p>Đây là website giới thiệu trường, lớp và nhóm học tập của chúng em trong môn Tin học.</p>
+</section>
+
+<!-- TRƯỜNG -->
+<section id="school" class="page">
+    <h2>🏫 GIỚI THIỆU TRƯỜNG</h2>
+    <img src="school.jpg" alt="Trường">
+    <P>Trường THCS-THPT Bến Hải</P>
+    <p>Trường là nơi đào tạo học sinh toàn diện, có đội ngũ giáo viên tận tâm và môi trường học tập lành mạnh.
+    <br>Địa chỉ : Thôn Lâm Cao, Xã Vĩnh Thuỷ, Tỉnh Quảng Trị</p>
+    <P>Trường là nơi chắp cánh cho những ước mơ</P>
+    <p>Năm học 2024-2045 trường có tỉ lệ tốt nghiệp THPT đạt 100%</p>
+</section>
+
+<!-- LỚP -->
+<section id="class" class="page">
+    <h2>📚 Giới thiệu lớp 12D</h2>
+    <img src="class.jpg" alt="Lớp">
+    <p>Lớp có 22 xinh đẹp và 24 anh trai</p>
+    <p> Lớp là nơi hội tụ đầy đủ tài năng tinh hoa về mọi mặt</p>
+    <p>GVCN: Lê Thị Thanh Thuỳ</p>
+    <p>Ngoan ngoãn, chăm ngoan, năng động, sáng tạo</p>
+    <p>Lớp 12D là tập thể đoàn kết, năng động, luôn cố gắng trong học tập và các hoạt động phong trào.</p>
+</section>
+
+<!-- NHÓM -->
+<section id="group" class="page group">
+    <a class="member" href="bao.html">
+        <img src="member1.jpg" alt="Trương Quân Bảo">
+        <h3>Trương Quân Bảo</h3>
+    </a>
+    <a class="member" href="my.html">
+        <img src="member2.jpg" alt="Nguyễn Thị Kiều My">
+        <h3>Nguyễn Thị Kiều My</h3>
+    </a>
+    <a class="member" href="trinh.html">
+        <img src="member3.jpg" alt="Lê Trần Kiều Trinh">
+        <h3>Lê Trần Kiều Trinh</h3>
+    </a>
+    <a class="member" href="thuong.html">
+        <img src="member4.jpg" alt="Nguyễn Thị Hoài Thương">
+        <h3>Nguyễn Thị Hoài Thương</h3>
+    </a>
+</section>
+
+<script>
+function toggleMusic() {
+    const music = document.getElementById("bgMusic");
+    if (!music) return;
+    music.paused ? music.play() : music.pause();
+}
+
+function fadeToSection(id) {
+    const current = document.querySelector(".page.active");
+    const next = document.getElementById(id);
+    if (!next || current === next) return;
+
+    // Fade out current
+    current.style.opacity = 0;
+    setTimeout(() => {
+        current.classList.remove("active");
+        current.style.display = "none";
+
+        // Hiển thị section mới
+        next.style.display = id === "group" ? "flex" : "block";
+        next.classList.add("active");
+        next.style.opacity = 0;
+
+        // Fade in
+        setTimeout(() => {
+            next.style.opacity = 1;
+        }, 50);
+    }, 300);
+}
+
+// Hiển thị trang chủ khi load
+document.addEventListener("DOMContentLoaded", () => {
+    const active = document.querySelector(".page.active");
+    if (active) active.style.display = "block";
+});
+</script>
+
+</body>
+</html>
